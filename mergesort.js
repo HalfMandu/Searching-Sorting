@@ -18,7 +18,7 @@ const { performance } = require('perf_hooks');
 //combine left and right sub arrays, maintaining linear runtime 
 const merge = (left, right) => {
 
-	out = [];
+	const out = [];
 
 	//shrink left and right arrs until gone, comparing and copying lower value to output
 	while (left.length && right.length) {
@@ -37,7 +37,7 @@ const merge = (left, right) => {
 //cut array in half, recursively sort each side
 const mergeSort = (arr) => {
 
-	let half = arr.length / 2;
+	const half = arr.length / 2;
 
 	//base case to halt recursion
 	if (arr.length < 2) {
@@ -45,7 +45,7 @@ const mergeSort = (arr) => {
 	}
 
 	//divide step: chop the array in half...the right half remains in arr
-	let left = arr.splice(0, half);
+	const left = arr.splice(0, half);
 
 	//conquer step: two recursive calls, one for each half
 	return merge(mergeSort(left), mergeSort(arr));
@@ -55,11 +55,11 @@ const mergeSort = (arr) => {
 //Driver
 
 const arr = [3, 9, 1, 12];
-console.log("Array before mergeSort: " + arr);
-let startTime = performance.now();
-let arrSorted = mergeSort(arr);
-let endTime = performance.now();
-console.log("Array after mergeSort: " + arrSorted);
+console.log("Array before mergeSort : " + arr);
+const startTime = performance.now();
+const arrSorted = mergeSort(arr);
+const endTime = performance.now();
+console.log("Array after mergeSort : " + arrSorted);
 console.log(`mergeSort() took ${endTime - startTime} milliseconds`);
 
 

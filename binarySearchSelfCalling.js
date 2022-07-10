@@ -19,10 +19,9 @@ const binarySearch = (array, val) => {
 
 	let minPos = 0;
 	let maxPos = array.length - 1;
-	let mid;
-	let search;
+	let mid, search;
 	
-	//self calling named function to enable recursion
+	//self calling unnamed function to enable recursion 
 	(search = () => {
 		
 		mid = Math.floor((minPos + maxPos) / 2);
@@ -31,18 +30,18 @@ const binarySearch = (array, val) => {
 		
 		//target value found -- end recursion
 		if (array[mid] === val ){
-		  console.log(`Value found -- ${val} == ${array[mid]}`);
-		  return;
+			console.log(`Value found -- ${val} == ${array[mid]}`);
+			return;
 		}
 		
 		//if val > mid, then target value must be to the right...move the min forward to halfway point
 		if (val > array[mid]){
-		  minPos = mid + 1;
+			minPos = mid + 1;
 		}
 		
 		//if val < mid, then target value must be to the left...move the max backwards to halfway point
 		if (val < array[mid]){
-		  maxPos = mid -1;
+			maxPos = mid -1;
 		}
 
 		search();  //value not yet found, so recurse again
@@ -52,15 +51,15 @@ const binarySearch = (array, val) => {
 
 
 //let arr = [1, 3, 4, 5, 8, 10, 15, 18, 20, 21, 22, 25, 26, 29, 34, 35];
-let val = 96;
-let sortedArr = [];
+const val = 96;
+const sortedArr = [];
 for (let i = 1; i <= 100; i++){
 	sortedArr.push(i);
 }
 
-let startTime = performance.now();
+const startTime = performance.now();
 binarySearch(sortedArr, val);
-let endTime = performance.now();
+const endTime = performance.now();
 	
 console.log(`binarySearch() took ${endTime - startTime} milliseconds`);
 

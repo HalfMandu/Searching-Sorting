@@ -26,7 +26,7 @@ const binarySearchRecursive = (arr, min, max, target) => {
 	}
 	
 	//index halfway into the array each pass through
-	let mid = Math.floor((min + max)/2);
+	const mid = Math.floor((min + max)/2);
 	
 	console.log("mid: " + mid);
 	
@@ -52,17 +52,17 @@ const binarySearchRecursive = (arr, min, max, target) => {
 
 //let sortedArr = [1, 3, 4, 5, 8, 9, 10, 16];
 
-let val = 22;
-let sortedArr = [];
+const val = 22;
+const sortedArr = [];
 for (let i = 1; i <= 100; i++){
 	sortedArr.push(i);
 }
 
 console.log("BinarySearching array for target: " + val);
 
-let startTime = performance.now();
+const startTime = performance.now();
 binarySearchRecursive(sortedArr, 0, sortedArr.length-1, val);
-let endTime = performance.now();
+const endTime = performance.now();
 	
 console.log(`binarySearchRecursive() took ${endTime - startTime} milliseconds`);
 

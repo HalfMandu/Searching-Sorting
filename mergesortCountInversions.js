@@ -47,14 +47,14 @@ const mergeSort = (obj) => {
     }
 
     //keep chopping in half in recursion until can't anymore
-    let mid = Math.floor(obj.arr.length / 2);
+    const mid = Math.floor(obj.arr.length / 2);
 
 	//give each side its own oject, to track its array as well as inversion counter
-    let left = { arr: obj.arr.slice(0, mid), inversionCount: obj.inversionCount };
-    let right = { arr: obj.arr.slice(mid), inversionCount: obj.inversionCount };
+    const left = { arr: obj.arr.slice(0, mid), inversionCount: obj.inversionCount };
+    const right = { arr: obj.arr.slice(mid), inversionCount: obj.inversionCount };
 
     //send the left and right subarrays over to their grand finale
-    let result = merge(mergeSort(left), mergeSort(right));
+    const result = merge(mergeSort(left), mergeSort(right));
 
     return result;
 }
@@ -63,9 +63,9 @@ const mergeSort = (obj) => {
 const arr = [9, 1, 3, 12];
 console.log("Begining Array: " + arr);
 
-let startTime = performance.now();
-let resultObj = mergeSort({ arr: arr, inversionCount: 0 });
-let endTime = performance.now();
+const startTime = performance.now();
+const resultObj = mergeSort({ arr: arr, inversionCount: 0 });
+const endTime = performance.now();
 
 console.log("Final Inversion Count: " + resultObj.inversionCount);
 console.log("Final Sorted Array: " + resultObj.arr);

@@ -98,7 +98,7 @@ const choosePivot = (arr, left, right, pivotType) => {
 //partitions the array around a pivot, so that leftside < pivot < rightside
 const partition = (arr, left, right) => {
 
-    let pivotPos = left;  //pivot always chosen as 1st element in this method
+    const pivotPos = left;  //pivot always chosen as 1st element in this method
     let i = left + 1;     //i will always start one spot ahead of leftmost boundary
 	
     //walk j from beginning to end, swapping smaller values backwards with i as it goes
@@ -130,7 +130,7 @@ const quickSort = (arr, leftPos, rightPos) => {
     choosePivot(arr.array, leftPos, rightPos, MEDIAN_ELEMENT);
 
     //partition around chosen pivot...once properly placed, can recurse both sides
-    let sortedPivotPos = partition(arr.array, leftPos, rightPos);
+    const sortedPivotPos = partition(arr.array, leftPos, rightPos);
 	
     //recurse both sides...all elements before the pivot index go to the left, the rest to the right
     quickSort(arr, leftPos, sortedPivotPos - 1);
@@ -149,7 +149,7 @@ const quickSort = (arr, leftPos, rightPos) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //Driver
 
-let result = [];
+const result = [];
 
 parseTxtFile('./QuickSort.txt').then(() => {
 
@@ -158,9 +158,9 @@ parseTxtFile('./QuickSort.txt').then(() => {
 		"compCounter": 0
 	} 
  
-    let startTime = performance.now();
-    let arrSorted = quickSort(arr, 0, arr.array.length - 1);
-    let endTime = performance.now();
+    const startTime = performance.now();
+    const arrSorted = quickSort(arr, 0, arr.array.length - 1);
+    const endTime = performance.now();
 	
 	console.log("Final compCounter : " + arrSorted.compCounter);    
 	console.log(`quickSort() took ${endTime - startTime} milliseconds`);

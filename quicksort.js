@@ -17,7 +17,7 @@ const swap = (arr, i, j) => {
 const partition = (arr, left, right) => {
 
     let i = left + 1;  
-    let pivotPos = left; //choosing 1st element as pivot in this implementation
+    const pivotPos = left; //choosing 1st element as pivot in this implementation
 
     //i and j both start at one position to the right of pivot, j marches to the end
     for (let j = i; j <= right; j++) {
@@ -48,7 +48,7 @@ const quickSort = (arr, leftPos, rightPos) => {
     //partition around a chosen pivot
     //once the pivot and array is rearranged their proper place, recurse both sides
     //return the location of the newly placed pivot of the partially sorted array
-    let pivotPos = partition(arr, leftPos, rightPos);   //1st loop: (arr, 0, 3)
+    const pivotPos = partition(arr, leftPos, rightPos);   //1st loop: (arr, 0, 3)
 
     //recurse both sides, split around pivot
     //all elements before the pivot index go to the left, the rest to the right
@@ -62,11 +62,11 @@ const quickSort = (arr, leftPos, rightPos) => {
 //Driver
 
 
-let arr = [3, 4, 7, 6, 9, 16, 10, 11, 12, 2, 5, 8, 1, 13, 14, 15];
+const arr = [3, 4, 7, 6, 9, 16, 10, 11, 12, 2, 5, 8, 1, 13, 14, 15];
 console.log("Initial array : " + arr);
-let startTime = performance.now();
-let arrSorted = quickSort(arr, 0, arr.length - 1);
-let endTime = performance.now();
+const startTime = performance.now();
+const arrSorted = quickSort(arr, 0, arr.length - 1);
+const endTime = performance.now();
 console.log("Sorted array: " + arrSorted);
 console.log(`quickSort() took ${endTime - startTime} milliseconds`);
 

@@ -74,7 +74,7 @@ const partition = (arr) => {
 const choosePivot = (arr) => {
 
 	//choose pivot from arr uniformly at random
-	let pivot = getBoundedRandomNumber(0, arr.length-1);
+	const pivot = getBoundedRandomNumber(0, arr.length-1);
 	
 	//place the (randomly) chosen pivot at the front, so partition() can chug it as it usually does
 	swap(arr, 0, pivot);
@@ -93,7 +93,7 @@ const RSelect = (arr, len, i) => {
 	choosePivot(arr);	
 		
 	//partition arr around pivot...j = new index of pivot, after placed in partition
-	let j = partition(arr);
+	const j = partition(arr);
 
 	//lucky case where chosen pivot is the i we are looking for
 	if (j == i){
@@ -104,7 +104,7 @@ const RSelect = (arr, len, i) => {
 		return RSelect (arr.slice(0, j-1), j-1, i);
 	}
 	else {
-		//recurse on the right side...i-j since we elminated the smaller ones (j) already
+		//recurse on the right side...i-j since already eliminated the smaller ones (j) 
 		return RSelect (arr.slice(j, arr.length), len-j, i-j);
 	}
 };
@@ -113,11 +113,11 @@ const RSelect = (arr, len, i) => {
 //Driver
 
 //let arr = [3, 4, 7, 6, 9, 16, 10, 11, 12, 2, 5, 8, 1, 13, 14, 15]
-let orderStatistic = 1351;
+const orderStatistic = 1351;
 
 console.log("RandomizedSelection()...Looking for orderStatistic: " + orderStatistic);
 
-let fileArray = [];
+const fileArray = [];
 
 parseTxtFile('./QuickSort.txt').then(() => {
 
@@ -128,9 +128,9 @@ parseTxtFile('./QuickSort.txt').then(() => {
 	} else {
 		
 		//run the code and time it 
-		let startTime = performance.now();
-		let ithOrderStatistic = RSelect(fileArray, fileArray.length, orderStatistic); 
-		let endTime = performance.now();
+		const startTime = performance.now();
+		const ithOrderStatistic = RSelect(fileArray, fileArray.length, orderStatistic); 
+		const endTime = performance.now();
 		
 		console.log("orderStatistic " + orderStatistic + " = " + ithOrderStatistic);
 		console.log(`RSelect() took ${endTime - startTime} milliseconds`);
